@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>SOS DOWNSTREAM | Benguela</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="#" />
+<style>
+
+/* ================= NAV ================= */
+
+/* =========================
+   NAVBAR PREMIUM
+========================= */
+.custom-navbar {
+  background: linear-gradient(90deg, #081c3a, #0d2d62);
+  padding: 15px 0;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+}
+
+/* Efeito ao scroll */
+.custom-navbar.scrolled {
+  background: rgba(8, 28, 58, 0.95);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Links */
+.nav-link {
+   background: linear-gradient(90deg, #4f8cff, #ffffff, #f5c542);
+    -webkit-background-clip: text;
+  font-weight: 500;
+  margin: 0 15px;
+  position: relative;
+  transition: 0.3s ease;
+  font-size: 1.05rem;
+}
+
+/* Hover dourado elegante */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 50%;
+  bottom: -5px;
+  background: #f5c542;
+  transition: 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover {
+  color: #f5c542 !important;
+}
+
+.nav-link:hover::after {
+  width: 60%;
+}
+
+/* Botão Venha Ajudar */
+.btn-help {
+  background: linear-gradient(45deg, #f5c542, #d4a017);
+  color: #081c3a;
+  font-weight: bold;
+  padding: 10px 25px;
+  border-radius: 50px;
+  transition: 0.4s ease;
+  box-shadow: 0 8px 20px rgba(245, 197, 66, 0.4);
+}
+
+.btn-help:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(245, 197, 66, 0.6);
+  color: #081c3a;
+}
+
+/* Responsivo */
+@media (max-width: 991px) {
+  .nav-link {
+    margin: 10px 0;
+  }
+}
+
+/*CSS DA SESSÃO DE APOIO DO PROJECTO */
+/* =========================
+   SESSÃO DOAÇÕES 
+========================= */
+
+.donation-section {
+  position: relative;
+  background: url("imagem/doaçoes.jpeg") center/cover no-repeat;
+  overflow: hidden;
+}
+
+/* overlay escuro + blur */
+.donation-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 15, 25, 0.75);
+  backdrop-filter: blur(3px);
+}
+
+/* garante conteúdo acima do overlay */
+.donation-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* título com cor institucional (azul + dourado) */
+.donation-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #4f8cff, #ffffff, #f5c542);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===== CARDS BANCÁRIOS GLASS ===== */
+.bank-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 18px;
+  border-radius: 14px;
+  color: #fff;
+  backdrop-filter: blur(10px);
+  transition: 0.4s ease;
+}
+
+.bank-card h6 {
+  margin-bottom: 5px;
+  color: #f5c542;
+}
+
+.bank-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ===== BOTÃO PREMIUM ===== */
+.donate-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #4f8cff, #f5c542);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.4s ease;
+}
+
+.donate-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(79, 140, 255, 0.4);
+}
+
+/* ===== IMAGENS IMPACTO ===== */
+.impact-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+
+  filter: grayscale(30%);
+  transition: 0.4s ease;
+}
+
+/* hover premium */
+.impact-img:hover {
+  transform: scale(1.08);
+  filter: grayscale(0%);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+/*FIM DO CSS DA SESSÃO DE APOIO DO PROJECTO*/
+
+/* =========================
+CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS 
+========================= */
+
+.partners-section {
+  background: linear-gradient(135deg, #f8fafc, #ffffff);
+}
+
+/* ===== IMAGEM PCA ===== */
+.pca-image-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.pca-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.2)
+  );
+}
+
+.pca-text {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  right: 25px;
+}
+
+/* ===== TÍTULO ===== */
+.partners-title {
+  font-size: 2rem;
+  background: linear-gradient(90deg, #e63946, #f77f00, #2a9d8f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*FIM DO CSS*/
+
+.logo-card {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  height: 120px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  transition: all 0.4s ease;
+}
+
+/* IMAGEM DO LOGO OCUPA TODO O CARD */
+.logo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* mantém o logo intacto */
+  padding: 15px;       /* dá respiro elegante */
+  transition: 0.4s ease;
+}
+
+/* OVERLAY */
+.logo-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transition: 0.4s ease;
+
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* HOVER PREMIUM */
+.logo-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+}
+
+.logo-card:hover img {
+  filter: brightness(1.05);
+  transform: scale(1.05);
+}
+
+.logo-card:hover .logo-overlay {
+  opacity: 1;
+}
+/*CSS DA SESSÃO DO SOBRE MIM */
+/* =========================
+   SOBRE PREMIUM
+========================= */
+
+.about-section {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* ===== BACKGROUND COM 2 IMAGENS EM TRANSIÇÃO ===== */
+.about-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  animation: bgSlide 16s infinite;
+  z-index: 1;
+}
+
+/* overlay escuro institucional */
+.about-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(5, 15, 35, 0.85),
+    rgba(10, 25, 60, 0.85)
+  );
+}
+
+/* animação troca de imagem */
+@keyframes bgSlide {
+  0% {
+    background-image: url("imagem/sobrefinal1.jpeg");
+  }
+  50% {
+    background-image: url("imagem/sobrefinal2.jpeg");
+  }
+  100% {
+    background-image: url("imagem/sobrefinal3.jpeg");
+  }
+}
+
+/* garante conteúdo acima */
+.about-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== TÍTULO INSTITUCIONAL ===== */
+.about-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #4f8cff, #ffffff, #f5c542);
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===== BLOCO DE TEXTO GLASS ===== */
+.about-content {
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-align: center;
+  transition: 0.5s ease;
+}
+
+.about-content:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+/*FIM DO CSS*/
+
+/*CSS DO CARROSSEL*/
+/* =========================
+   HERO CINEMATOGRÁFICO
+========================= */
+
+.hero-section {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  animation: zoomHero 20s ease-in-out infinite alternate;
+}
+
+@keyframes zoomHero {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(132, 139, 155, 0.45),
+    rgba(34, 63, 148, 0.35)
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  max-width: 900px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ffffff, #f5c542);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeUp 1.5s ease;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  opacity: 0.9;
+  animation: fadeUp 2s ease;
+}
+
+/* Botão principal dourado */
+.btn-hero-primary {
+  background: linear-gradient(45deg, #f5c542, #d4a017);
+  color: #081c3a;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: 0.4s ease;
+  box-shadow: 0 10px 25px rgba(245,197,66,0.4);
+}
+
+.btn-hero-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(245,197,66,0.6);
+  color: #081c3a;
+}
+
+/* Botão outline elegante */
+.btn-hero-outline {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: 0.4s ease;
+}
+
+.btn-hero-outline:hover {
+  background: #ffffff;
+  color: #081c3a;
+}
+
+/* Indicadores personalizados */
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #f5c542;
+  opacity: 0.6;
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+}
+
+/* ESSENCIAL PARA O CAROUSEL FUNCIONAR */
+.carousel-item {
+  height: 100vh;
+  position: relative;
+}
+
+/* Animação texto */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/*CSS DA SESSÃO DE IMPACTO*/
+/* =========================
+   IMPACTO SOCIAL
+========================= */
+
+.impact-section {
+  background: linear-gradient(180deg, #f8f9fa, #eef2f7);
+}
+
+.impact-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #0f3d86, #e5b123);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* IMAGENS */
+.impact-img {
+  overflow: hidden;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+}
+
+.impact-img img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: 0.6s ease;
+}
+
+.impact-img:hover img {
+  transform: scale(1.1);
+  filter: brightness(0.8);
+}
+
+/* VÍDEOS */
+.impact-video {
+  position: relative;
+  padding-top: 56.25%;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.impact-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ESTATÍSTICAS */
+.stat-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  transition: 0.4s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.stat-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.stat-box h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #0d2d62;
+}
+
+.stat-box p {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* EFEITO AO APARECER 
+.impact-section {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: 1s ease;
+}*/
+.impact-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*CSS DO RODAPÉ*/
+/* =========================
+   FOOTER PREMIUM
+========================= */
+
+.footer-premium {
+  background: linear-gradient(135deg, #081c3a, #0d2d62);
+  color: #ffffff;
+}
+
+/* TÍTULO */
+.footer-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.footer-brand span {
+  background: linear-gradient(90deg, #4f8cff, #ffffff, #f5c542);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* LINHAS */
+.footer-divider {
+  border-color: rgba(255,255,255,0.15);
+}
+
+/* INFORMAÇÕES */
+.footer-info h6 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #f5c542;
+}
+
+.footer-info a,
+.footer-info p {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.footer-info a:hover {
+  color: #ffffff;
+}
+
+/* COPYRIGHT */
+.footer-copy {
+  color: rgba(255,255,255,0.6);
+}
+
+/* =========================
+   SOCIAL ICONS PREMIUM
+========================= */
+
+.social-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icon {
+  position: relative;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  background: rgba(255,255,255,0.08);
+  transition: 0.4s ease;
+  overflow: hidden;
+  color: white;
+}
+
+/* Overlay animado */
+.social-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+/* HOVER */
+.social-icon:hover {
+  transform: translateY(-6px);
+  color: #fff;
+}
+
+/* CORES OFICIAIS */
+.facebook::before { background: #1877f2; }
+.instagram::before { 
+  background: linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7); 
+}
+.twitter::before { background: #000000; }
+.youtube::before { background: #ff0000; }
+
+.social-icon:hover::before {
+  opacity: 1;
+  z-index: -1;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR INSTITUCIONAL PREMIUM -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
+  <div class="container">
+
+    <!-- LOGOTIPO -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="imagem/logo.png" alt="SOS Downstream" height="95" class="me-2">
+    </a>
+
+    <!-- BOTÃO MOBILE -->
+    <button class="navbar-toggler border-0 shadow-none" type="button"
+            data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- LINKS CENTRALIZADOS -->
+    <div class="collapse navbar-collapse" id="menu">
+
+      <ul class="navbar-nav mx-auto text-center">
+        <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+        <li class="nav-item"><a class="nav-link" href="#impacto">Impacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projectos">Projectos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#doacoes">Doações</a></li>
+      </ul>
+
+      <!-- BOTÃO DIREITO -->
+      <div class="d-lg-block text-center mt-3 mt-lg-0 color-write">
+        <a href="#doacoes" class="donate-btn">
+          Venha Ajudar
+        </a>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<section id="heroCarousel" class="carousel slide carousel-fade hero-section" data-bs-ride="carousel">
+
+  <div class="carousel-inner">
+
+    <!-- SLIDE 1 -->
+    <div class="carousel-item active">
+      <div class="hero-bg" style="background-image:url('imagem/carrousel2.jpeg');"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-content text-center">
+        <h1 class="hero-title">SOS DOWNSTREAM</h1>
+        <p class="hero-subtitle">
+          Unidos para reconstruir vidas em Benguela
+        </p>
+
+        <div class="mt-4">
+          <a href="#doacoes" class="donate-btn me-3 color-write">
+            Apoiar Agora
+          </a>
+          <a href="#impacto" class="btn btn-hero-outline">
+            Ver impacto
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="carousel-item">
+      <div class="hero-bg" style="background-image:url('imagem/carrousel1.jpeg');"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-content text-center">
+        <h1 class="hero-title">Ajuda Humanitária</h1>
+        <p class="hero-subtitle">
+          Mobilização nacional para apoiar famílias afetadas
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CONTROLES -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+
+</section>
+
+<!-- SOBRE PREMIUM -->
+<section id="sobre" class="about-section">
+  <!-- BACKGROUND SLIDES -->
+  <div class="about-bg"></div>
+
+  <div class="container position-relative">
+    <!-- TÍTULO -->
+    <div class="text-center mb-5">
+      <h2 class="about-title">
+        Sobre SOS Downstream 
+      </h2>
+      <p class="text-light opacity-75 col-lg-8 mx-auto">
+        Uma resposta estratégica e humanitária à catástrofe que afetou Benguela.
+      </p>
+    </div>
+    <!-- BLOCO DE CONTEÚDO -->
+    <div class="about-content mx-auto">
+      <p>
+        O <strong>SOS Downstream</strong> é uma iniciativa conjunta das principais empresas
+        do setor energético em Angola, criada com o propósito de apoiar as famílias
+        afetadas pela recente catástrofe em Benguela.
+      </p>
+
+      <p>
+        O projecto tem como objetivo principal mobilizar recursos financeiros,
+        logísticos e humanos para garantir assistência imediata, reconstrução
+        sustentável e devolução da dignidade às comunidades impactadas.
+      </p>
+
+      <p>
+        Mais do que uma ação emergencial, esta iniciativa representa um compromisso
+        institucional de responsabilidade social, solidariedade e reconstrução
+        nacional.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- IMPACTO SOCIAL PREMIUM -->
+<section id="impacto" class="impact-section py-5">
+  <div class="container">
+    <!-- TÍTULO -->
+    <div class="text-center mb-5">
+      <h2 class="impact-title">Impacto Social</h2>
+      <p class="text-muted col-lg-8 mx-auto">
+        Imagens monstrando o impacto ocorrido em Benguela
+      </p>
+    </div>
+
+    <!-- GALERIA DE IMAGENS (MAX 8) -->
+    <div class="row g-4 mb-5">
+
+      <!-- 8 IMAGENS -->
+      <div class="col-6 col-md-3">
+        <div class="impact-img"><img src="imagem/impacto1.jpeg" class="img-fluid"></div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="impact-img"><img src="imagem/impacto2.jpeg" class="img-fluid"></div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="impact-img"><img src="imagem/impacto3.jpeg" class="img-fluid"></div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="impact-img"><img src="imagem/impacto4.jpeg" class="img-fluid"></div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="impact-img"><img src="imagem/sobrefinal2.jpeg" class="img-fluid"></div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="impact-img"><img src="imagem/impacto8.jpeg" class="img-fluid"></div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="impact-img"><img src="imagem/impacto9.jpeg" class="img-fluid"></div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="impact-img"><img src="imagem/impacto11.jpeg" class="img-fluid"></div>
+      </div>
+
+    </div>
+
+    <!-- VÍDEOS (MAX 2) -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-6">
+        <div class="impact-video">
+          <iframe width="100%" height="350"
+              src="https://www.youtube.com/embed/cKiw3uBIM1E"
+              title="Chuvas e inundações em Angola apoio em benguela"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+               </iframe>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="impact-video">
+          <iframe width="100%" height="350"
+              src="https://www.youtube.com/embed/_40cewpG3II?si"
+              title="Chuvas e inundações em Angola"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+              </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- ESTATÍSTICAS -->
+    <div class="row text-center g-4 impact-stats">
+
+      <div class="col-md-3">
+        <div class="stat-box">
+          <h2 class="counter" data-target="1250">340</h2>
+          <p>Famílias precisando do seu apoio</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="stat-box">
+          <h2 class="counter" data-target="18">25</h2>
+          <p>Projectos até agora Realizados</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="stat-box">
+          <h2 class="counter" data-target="340">150</h2>
+          <p>Voluntários</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="stat-box">
+          <h2 class="counter" data-target="450">200 mil </h2>
+          <p>Kz Arrecadados</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- PROJECTOS -->
+<!-- DOAÇÕES PREMIUM -->
+<section id="doacoes" class="donation-section py-5">
+
+  <div class="container position-relative">
+
+    <div class="row align-items-center g-5">
+
+      <!-- ================= LADO ESQUERDO (DADOS BANCÁRIOS) ================= -->
+      <div class="col-lg-6">
+
+        <h2 class="donation-title mb-3">
+          Apoio Humanitário à Benguela
+        </h2>
+
+        <p class="text-light opacity-75 mb-4">
+          As contribuições são fundamentais para garantir alimentação, abrigo e apoio às famílias afetadas.
+        </p>
+
+        <!-- CARDS BANCÁRIOS GLASS -->
+        <div class="bank-card mb-3">
+          <h6>Banco BAI</h6>
+          <p>AO06 1236 5689 9087</p>
+        </div>
+
+        <div class="bank-card mb-3">
+          <h6>Banco BFA</h6>
+          <p>AO06 1234 5678 9012</p>
+        </div>
+
+        <div class="bank-card mb-4">
+          <h6>Projeto</h6>
+          <p>SOS Downstream Benguela</p>
+        </div>
+
+        <!-- BOTÃO -->
+        <a href="#" class="donate-btn">
+          Contribuir Agora
+        </a>
+
+      </div>
+
+      <!-- ================= LADO DIREITO (IMAGENS IMPACTO) ================= -->
+      <div class="col-lg-6">
+<!-- PROJECTOS DE APOIO (DENTRO DO IMPACTO) -->
+<div class="mt-5">
+
+  <!-- TÍTULO DA SUBSECÇÃO -->
+  <div class="text-center mb-4">
+    <h3 id="projectos" class="fw-bold impact-title" style="font-size:1.8rem;">
+      Projectos de Apoio
+    </h3>
+    <p class="text-white opacity-75 col-lg-8 mx-auto">
+      Registos visuais das principais acções humanitárias realizadas em Benguela.
+    </p>
+  </div>
+
+  <!-- GRID DE IMAGENS -->
+  <div class="row g-3 justify-content-center">
+
+    <div class="col-6 col-md-4 col-lg-4">
+      <div class="impact-img">
+        <img src="imagem/apoio2.jpeg" alt="apoio da união dos cantores em grupos">
+      </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-4">
+      <div class="impact-img">
+        <img src="imagem/apoio1.jpeg" alt="apoio dos cantores individualmente">
+      </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-4">
+      <div class="impact-img">
+        <img src="imagem/apoio3.jpeg" alt="apoio dos cantores show solidario">
+      </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-4">
+      <div class="impact-img">
+        <img src="imagem/apoio4.jpeg" alt="apoio da comunicação social">
+      </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-4">
+      <div class="impact-img">
+        <img src="imagem/apoio5.jpeg" alt="apoio do presidente">
+      </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-4">
+      <div class="impact-img">
+        <img src="imagem/impacto10.jpeg" alt="apoio dos bombeiros">
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!--SESSÃO DO APOIO HUMANITARIO A BENGUELA E DO PROJECTO DE APOIO -->
+<section class="py-5 partners-section">
+
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <!-- ================= LADO ESQUERDO ================= -->
+      <div class="col-lg-6" data-aos="fade-right">
+
+        <div class="pca-image-wrapper position-relative rounded-4 overflow-hidden shadow-lg">
+
+          <img src="imagem/PCAS.jpeg" class="img-fluid w-100" alt="PCA das empresas juntos">
+
+          <!-- OVERLAY ESCURO -->
+          <div class="pca-overlay"></div>
+
+          <!-- TEXTO SOBRE A IMAGEM -->
+          <div class="pca-text">
+            <h3 class="fw-bold text-white">Unidos pela reconstrução de Benguela</h3>
+            <p class="text-white-50">
+              Presidentes e Administradores das principais empresas energéticas de Angola
+              em compromisso conjunto de responsabilidade social.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ================= LADO DIREITO ================= -->
+      <div class="col-lg-6" data-aos="fade-left">
+
+        <h2 class="fw-bold partners-title mb-4">
+          Aliança Humanitária Estratégica
+        </h2>
+
+        <p class="text-muted mb-4">
+          Uma cooperação institucional entre empresas líderes do setor energético
+          para resposta rápida e sustentável às necessidades humanitárias em Benguela.
+        </p>
+
+        <!-- LOGOS GRID -->
+        <div class="row g-4">
+
+          <div class="col-6 col-md-4">
+            <div class="logo-card">
+              <img src="imagem/1.png" alt="Sonangol">
+              <div class="logo-overlay">Sonangol</div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4">
+            <div class="logo-card">
+              <img src="imagem/3.png" alt="Pumangol">
+              <div class="logo-overlay">Pumangol</div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4">
+            <div class="logo-card">
+              <img src="imagem/5.png" alt="TotalEnergies">
+              <div class="logo-overlay">TotalEnergies</div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4">
+            <div class="logo-card">
+              <img src="imagem/2.png" alt="Sonangalp">
+              <div class="logo-overlay">Sonangalp</div>
+            </div>
+          </div>
+
+          <div class="col-6 col-md-4">
+            <div class="logo-card">
+              <img src="imagem/4.png" alt="ETU Energias">
+              <div class="logo-overlay">ETU Energias</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<!-- Rodapé ORIGINAL TECANFARMA (mantido) -->
+<footer class="footer-premium py-5 mt-5">
+
+  <div class="container">
+
+    <!-- LINHA SUPERIOR -->
+    <div class="text-center mb-4">
+
+      <a class="footer-brand text-decoration-none" href="#">
+        SOS <span>DOWNSTREAM</span>
+      </a>
+
+      <div class="social-wrapper mt-4">
+
+        <a href="#" class="social-icon facebook">
+          <i class="bi bi-facebook"></i>
+        </a>
+
+        <a href="#" class="social-icon instagram">
+          <i class="bi bi-instagram"></i>
+        </a>
+
+        <a href="#" class="social-icon twitter">
+          <i class="bi bi-twitter-x"></i>
+        </a>
+
+        <a href="#" class="social-icon youtube">
+          <i class="bi bi-youtube"></i>
+        </a>
+
+      </div>
+    </div>
+
+    <hr class="footer-divider">
+
+    <!-- INFORMAÇÕES -->
+    <div class="row text-center text-md-start justify-content-center footer-info">
+
+      <div class="col-md-4 mb-4">
+        <h6>Central de Apoio</h6>
+        <a href="tel:+244928607944">+244 928 607 944</a>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <h6>Email</h6>
+        <a href="mailto:contacto@sosdownstream.ao">
+          contacto@sosdownstream.ao
+        </a>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <h6>Localização</h6>
+        <p>Benguela - Angola</p>
+      </div>
+
+    </div>
+
+    <hr class="footer-divider">
+
+    <p class="text-center small footer-copy">
+      © 2026 SOS DOWNSTREAM. Todos os direitos reservados.
+    </p>
+
+  </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const impactSection = document.querySelector(".impact-section");
+
+window.addEventListener("scroll", () => {
+  const position = impactSection.getBoundingClientRect().top;
+
+  if (position < window.innerHeight - 100) {
+    impactSection.classList.add("show");
+  }
+});
+</script>
+
+</body>
+</html>
