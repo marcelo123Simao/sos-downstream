@@ -275,6 +275,7 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
 .logo-card:hover .logo-overlay {
   opacity: 1;
 }
+
 /*CSS DA SESSÃO DO SOBRE MIM */
 /* =========================
    SOBRE PREMIUM
@@ -299,15 +300,15 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
   animation: bgSlide 16s infinite;
   z-index: 1;
 }
-
-/* overlay escuro institucional */
 .about-bg::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    rgba(5, 15, 35, 0.85),
-    rgba(10, 25, 60, 0.85)
+    to bottom,
+    rgba(5, 15, 55, 0.75) 0%,   /* topo mais escuro */
+    rgba(5, 15, 35, 0.55) 40%,
+    rgba(5, 15, 35, 0.35) 100% /* parte inferior mais visível */
   );
 }
 
@@ -388,8 +389,8 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    rgba(132, 139, 155, 0.45),
-    rgba(34, 63, 148, 0.35)
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.35)
   );
 }
 
@@ -488,15 +489,18 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
 .impact-section {
   background: linear-gradient(180deg, #f8f9fa, #eef2f7);
 }
-
 .impact-title {
   font-size: 2.5rem;
-  font-weight: bold;
-  background: linear-gradient(90deg, #0f3d86, #e5b123);
+  font-weight: 700;
+  background: linear-gradient(
+    90deg,
+    #081c3a 0%,      /* azul institucional profundo */
+    #0f3d86 40%,     /* azul médio */
+    #f5c542 100%     /* dourado institucional */
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 /* IMAGENS */
 .impact-img {
   overflow: hidden;
@@ -673,6 +677,33 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
   z-index: -1;
 }
 
+/* CSS DOS BOTÕES DE IDIOMA */
+.language-switcher {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.lang-btn {
+  background: transparent;
+  border: 1px solid #e5b123;
+  color: #e5b123;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.lang-btn:hover {
+  background: linear-gradient(45deg, #e5b123, #c99c1a);
+  color: #0f3d86;
+}
+
+.lang-btn.active {
+  background: linear-gradient(45deg, #e5b123, #c99c1a);
+  color: #0f3d86;
+}
 </style>
 
 </head>
@@ -698,19 +729,23 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
     <div class="collapse navbar-collapse" id="menu">
 
       <ul class="navbar-nav mx-auto text-center">
-        <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
-        <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
-        <li class="nav-item"><a class="nav-link" href="#impacto">Impacto</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projectos">Projectos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#doacoes">Doações</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-translate="nav_inicio">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sobre" data-translate="nav_sobre">Sobre</a></li>
+        <li class="nav-item"><a class="nav-link" href="#impacto" data-translate="nav_impacto">Impacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projectos" data-translate="nav_projectos">Projectos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#doacoes" data-translate="nav_doacoes">Doações</a></li>
       </ul>
 
       <!-- BOTÃO DIREITO -->
       <div class="d-lg-block text-center mt-3 mt-lg-0 color-write">
-        <a href="#doacoes" class="donate-btn">
+        <a data-translate="nav_ajudar" href="#doacoes" class="donate-btn">
           Venha Ajudar
         </a>
       </div>
+      <div class="language-switcher ms-lg-3 mt-3 mt-lg-0 text-center">
+      <button class="lang-btn active" onclick="changeLanguage('pt')">PT</button>
+      <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+    </div>
 
     </div>
   </div>
@@ -727,15 +762,15 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
 
       <div class="container hero-content text-center">
         <h1 class="hero-title">SOS DOWNSTREAM</h1>
-        <p class="hero-subtitle">
+        <p class="hero-subtitle" data-translate="hero_sub">
           Unidos para reconstruir vidas em Benguela
         </p>
 
         <div class="mt-4">
-          <a href="#doacoes" class="donate-btn me-3 color-write">
+          <a data-translate="hero_btn1"href="#doacoes" class="donate-btn me-3 color-write">
             Apoiar Agora
           </a>
-          <a href="#impacto" class="btn btn-hero-outline">
+          <a data-translate="hero_btn2" href="#impacto" class="btn btn-hero-outline">
             Ver impacto
           </a>
         </div>
@@ -744,12 +779,12 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
 
     <!-- SLIDE 2 -->
     <div class="carousel-item">
-      <div class="hero-bg" style="background-image:url('imagem/carrousel1.jpeg');"></div>
+      <div class="hero-bg" style="background-image:url('imagem/impacto11.jpeg');"></div>
       <div class="hero-overlay"></div>
 
       <div class="container hero-content text-center">
-        <h1 class="hero-title">Ajuda Humanitária</h1>
-        <p class="hero-subtitle">
+        <h1 class="hero-title" data-translate="hero2_title">Ajuda Humanitária</h1>
+        <p class="hero-subtitle" data-translate="hero2_sub">
           Mobilização nacional para apoiar famílias afetadas
         </p>
       </div>
@@ -776,28 +811,29 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
   <div class="container position-relative">
     <!-- TÍTULO -->
     <div class="text-center mb-5">
-      <h2 class="about-title">
+      <h2 class="about-title" data-translate="sobre_titulo">
         Sobre SOS Downstream 
       </h2>
-      <p class="text-light opacity-75 col-lg-8 mx-auto">
+      <p data-translate="sobre_desc" class="text-light opacity-75 col-lg-8 mx-auto fs-5">
         Uma resposta estratégica e humanitária à catástrofe que afetou Benguela.
       </p>
     </div>
     <!-- BLOCO DE CONTEÚDO -->
     <div class="about-content mx-auto">
-      <p>
-        O <strong>SOS Downstream</strong> é uma iniciativa conjunta das principais empresas
-        do setor energético em Angola, criada com o propósito de apoiar as famílias
-        afetadas pela recente catástrofe em Benguela.
+      <p data-translate="sobre_texto1">
+        O programa<strong>Downstream S.O.S Benguela</strong> – Recomeçar com Dignidade surge como uma iniciativa 
+        multissetorial que integra esforços do sector privado, 
+        organizações da sociedade civil e entidades públicas. 
       </p>
 
-      <p>
-        O projecto tem como objetivo principal mobilizar recursos financeiros,
-        logísticos e humanos para garantir assistência imediata, reconstrução
-        sustentável e devolução da dignidade às comunidades impactadas.
-      </p>
+      <p data-translate="sobre_texto2">
+       Através da mobilização de recursos financeiros,
+        logísticos e humanos, o programa visa garantir 
+        apoio emergencial e criar condições para que as famílias possam 
+        reconstruir as suas vidas com autonomia e segurança.
+     </p>
 
-      <p>
+      <p data-translate="sobre_texto3">
         Mais do que uma ação emergencial, esta iniciativa representa um compromisso
         institucional de responsabilidade social, solidariedade e reconstrução
         nacional.
@@ -813,10 +849,9 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
   <div class="container">
     <!-- TÍTULO -->
     <div class="text-center mb-5">
-      <h2 class="impact-title">Impacto Social</h2>
-      <p class="text-muted col-lg-8 mx-auto">
-        Imagens monstrando o impacto ocorrido em Benguela
-      </p>
+      <h2 class="impact-title" data-translate="impacto_titulo">Impacto Social</h2>
+      <p data-translate="impacto_desc" class="text-muted col-lg-8 mx-auto fs-5">
+        Imagens monstrando o impacto ocorrido em Benguela, devido ao transbordo dos rios, Cavaco e o Halo, danificando a estrada nacional 100, e o caminho de ferro de Benguela.</p>
     </div>
 
     <!-- GALERIA DE IMAGENS (MAX 8) -->
@@ -882,29 +917,29 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
 
       <div class="col-md-3">
         <div class="stat-box">
-          <h2 class="counter" data-target="1250">340</h2>
-          <p>Famílias precisando do seu apoio</p>
+          <h2 class="counter" data-target="1250">4 000</h2>
+          <p data-translate="stat1">Famílias precisando do seu apoio</p>
         </div>
       </div>
 
       <div class="col-md-3">
         <div class="stat-box">
-          <h2 class="counter" data-target="18">25</h2>
-          <p>Projectos até agora Realizados</p>
+          <h2 class="counter" data-target="18">450</h2>
+          <p data-translate="stat2">Casas destruídas</p>
         </div>
       </div>
 
       <div class="col-md-3">
         <div class="stat-box">
-          <h2 class="counter" data-target="340">150</h2>
-          <p>Voluntários</p>
+          <h2 class="counter" data-target="340">19</h2>
+          <p data-translate="stat3">Mortos</p>
         </div>
       </div>
 
       <div class="col-md-3">
         <div class="stat-box">
           <h2 class="counter" data-target="450">200 mil </h2>
-          <p>Kz Arrecadados</p>
+          <p data-translate="stat4">Kz Arrecadados</p>
         </div>
       </div>
 
@@ -912,7 +947,6 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
 
   </div>
 </section>
-
 
 <!-- PROJECTOS -->
 <!-- DOAÇÕES PREMIUM -->
@@ -925,11 +959,11 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
       <!-- ================= LADO ESQUERDO (DADOS BANCÁRIOS) ================= -->
       <div class="col-lg-6">
 
-        <h2 class="donation-title mb-3" id="apoio">
+        <h2 data-translate="doacao_titulo" class="donation-title mb-3" id="apoio">
           Apoio Humanitário à Benguela
         </h2>
 
-        <p class="text-light opacity-75 mb-4">
+        <p data-translate="doacao_desc" class="text-light opacity-75 mb-4">
           As contribuições são fundamentais para garantir alimentação, abrigo e apoio às famílias afetadas.
         </p>
 
@@ -950,7 +984,7 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
         </div>
 
         <!-- BOTÃO -->
-        <a href="#apoio" class="donate-btn">
+        <a data-translate="contribuir" href="#apoio" class="donate-btn">
           Contribuir Agora
         </a>
 
@@ -963,10 +997,10 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
 
   <!-- TÍTULO DA SUBSECÇÃO -->
   <div class="text-center mb-4">
-    <h3 id="projectos" class="fw-bold impact-title" style="font-size:1.8rem;">
+    <h3 data-translate="projectos_titulo" id="projectos" class="fw-bold impact-title" style="font-size:1.8rem;">
       Projectos de Apoio
     </h3>
-    <p class="text-white opacity-75 col-lg-8 mx-auto">
+    <p data-translate="projectos_desc" class="text-white opacity-75 col-lg-8 mx-auto">
       Registos visuais das principais acções humanitárias realizadas em Benguela.
     </p>
   </div>
@@ -1040,8 +1074,8 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
 
           <!-- TEXTO SOBRE A IMAGEM -->
           <div class="pca-text">
-            <h3 class="fw-bold text-white">Unidos pela reconstrução de Benguela</h3>
-            <p class="text-white-50">
+            <h3 class="fw-bold text-white" data-translate="pca_titulo">Unidos pela reconstrução de Benguela</h3>
+            <p class="text-white-50" data-translate="pca_desc">
               Presidentes e Administradores das principais empresas energéticas de Angola
               em compromisso conjunto de responsabilidade social.
             </p>
@@ -1054,11 +1088,11 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
       <!-- ================= LADO DIREITO ================= -->
       <div class="col-lg-6" data-aos="fade-left">
 
-        <h2 class="fw-bold partners-title mb-4">
+        <h2 data-translate="alianca_estrategica_titulo" class="fw-bold partners-title mb-4">
           Aliança Humanitária Estratégica
         </h2>
 
-        <p class="text-muted mb-4">
+        <p data-translate="alianca_estrategica_desc" class="text-muted mb-4">
           Uma cooperação institucional entre empresas líderes do setor energético
           para resposta rápida e sustentável às necessidades humanitárias em Benguela.
         </p>
@@ -1150,19 +1184,19 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
     <div class="row text-center text-md-start justify-content-center footer-info">
 
       <div class="col-md-4 mb-4">
-        <h6>Central de Apoio</h6>
-        <a href="tel:+244928607944">+244 928 607 944</a>
+        <h6 data-translate="footer_apoio">Central de Apoio</h6>
+        <a href="tel:+244226670094">+244 930 062 500</a>
       </div>
 
       <div class="col-md-4 mb-4">
-        <h6>Email</h6>
-        <a href="mailto:contacto@sosdownstream.ao">
-          contacto@sosdownstream.ao
+        <h6 data-translate="footer_email">Email</h6>
+        <a href="mailto:sosdownstream@gmail.ao">
+          sosdownstream@gmail.ao
         </a>
       </div>
 
       <div class="col-md-4 mb-4">
-        <h6>Localização</h6>
+        <h6 data-translate="footer_local">Localização</h6>
         <p>Benguela - Angola</p>
       </div>
 
@@ -1170,7 +1204,7 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
 
     <hr class="footer-divider">
 
-    <p class="text-center small footer-copy">
+    <p data-translate="footer_copy" class="text-center small footer-copy">
       © 2026 SOS DOWNSTREAM. Todos os direitos reservados.
     </p>
 
@@ -1189,6 +1223,169 @@ window.addEventListener("scroll", () => {
   if (position < window.innerHeight - 100) {
     impactSection.classList.add("show");
   }
+});
+</script>
+<script>
+const translations = {
+  pt: {
+    // NAV
+    nav_inicio: "Início",
+    nav_sobre: "Sobre",
+    nav_impacto: "Impacto",
+    nav_projectos: "Projectos",
+    nav_doacoes: "Doações",
+    nav_ajudar: "Venha Ajudar",
+
+    // HERO 1
+    hero_sub: "Unidos para reconstruir vidas em Benguela",
+    hero_btn1: "Apoiar Agora",
+    hero_btn2: "Ver Impacto",
+
+    // HERO 2
+    hero2_title: "Ajuda Humanitária",
+    hero2_sub: "Mobilização nacional para apoiar famílias afetadas",
+
+    // SOBRE
+    sobre_titulo: "Sobre SOS Downstream",
+    sobre_desc: "Uma resposta estratégica e humanitária à catástrofe que afetou Benguela.",
+
+    sobre_texto1: `O programa <strong>Downstream S.O.S Benguela</strong> – Recomeçar com Dignidade surge como uma iniciativa multissetorial que integra esforços do sector privado, organizações da sociedade civil e entidades públicas.`,
+
+    sobre_texto2: `Através da mobilização de recursos financeiros, logísticos e humanos, o programa visa garantir apoio emergencial e criar condições para que as famílias possam reconstruir as suas vidas com autonomia e segurança.`,
+
+    sobre_texto3: `Mais do que uma ação emergencial, esta iniciativa representa um compromisso institucional de responsabilidade social, solidariedade e reconstrução nacional.`,
+
+    // IMPACTO
+    impacto_titulo: "Impacto Social",
+    impacto_desc: "Imagens mostrando o impacto ocorrido em Benguela devido às inundações.",
+
+    // ESTATÍSTICAS
+    stat1: "Famílias precisando do seu apoio",
+    stat2: "Casas destruídas",
+    stat3: "Mortos",
+    stat4: "Kz Arrecadados",
+
+    // DOAÇÕES
+    doacao_titulo: "Apoio Humanitário à Benguela",
+    doacao_desc: "As contribuições são fundamentais para garantir alimentação, abrigo e apoio às famílias afetadas.",
+    contribuir: "Contribuir Agora",
+
+    // PROJECTOS
+    projectos_titulo: "Projectos de Apoio",
+    projectos_desc: "Registos visuais das principais acções humanitárias realizadas em Benguela.",
+
+    // PCA
+    pca_titulo: "Unidos pela reconstrução de Benguela",
+    pca_desc: "Presidentes e Administradores das principais empresas energéticas de Angola em compromisso conjunto de responsabilidade social.",
+
+    // ALIANÇA ESTRATÉGICA
+    alianca_estrategica_titulo: "Aliança Humanitária Estratégica",
+    alianca_estrategica_desc: "Uma cooperação institucional entre empresas líderes do setor energético para resposta rápida e sustentável às necessidades humanitárias em Benguela.",
+
+    // ALIANÇA
+    alianca_titulo: "Aliança Humanitária Estratégica",
+    alianca_desc: "Uma cooperação institucional entre empresas líderes do setor energético para resposta rápida e sustentável às necessidades humanitárias em Benguela.",
+
+    // FOOTER
+    footer_local: "Localização",
+    footer_apoio: "Central de Apoio",
+    footer_email: "Email",
+    footer_copy: "© 2026 SOS DOWNSTREAM. Todos os direitos reservados."
+  },
+
+  en: {
+    // NAV
+    nav_inicio: "Home",
+    nav_sobre: "About",
+    nav_impacto: "Impact",
+    nav_projectos: "Projects",
+    nav_doacoes: "Donations",
+    nav_ajudar: "Support Now",
+
+    // HERO 1
+    hero_sub: "United to rebuild lives in Benguela",
+    hero_btn1: "Support Now",
+    hero_btn2: "View Impact",
+
+    // HERO 2
+    hero2_title: "Humanitarian Aid",
+    hero2_sub: "National mobilization to support affected families",
+
+    // SOBRE
+    sobre_titulo: "About SOS Downstream",
+    sobre_desc: "A strategic and humanitarian response to the catastrophe that affected Benguela.",
+
+    sobre_texto1: `The <strong>Downstream S.O.S Benguela</strong> program – Rebuilding with Dignity is a multisector initiative that brings together efforts from the private sector, civil society organizations, and public entities.`,
+
+    sobre_texto2: `Through the mobilization of financial, logistical, and human resources, the program aims to ensure emergency support and create conditions for families to rebuild their lives with autonomy and security.`,
+
+    sobre_texto3: `More than an emergency action, this initiative represents an institutional commitment to social responsibility, solidarity, and national reconstruction.`,
+
+    // IMPACTO
+    impacto_titulo: "Social Impact",
+    impacto_desc: "Images showing the impact caused by floods in Benguela.",
+
+    // ESTATÍSTICAS
+    stat1: "Families in need of support",
+    stat2: "Destroyed Houses",
+    stat3: "Deaths",
+    stat4: "Funds Raised (Kz)",
+
+    // DOAÇÕES
+    doacao_titulo: "Humanitarian Support for Benguela",
+    doacao_desc: "Contributions are essential to ensure food, shelter and assistance to affected families.",
+    contribuir: "Contribute Now",
+
+    // PROJECTS
+    projectos_titulo: "Support Projects",
+    projectos_desc: "Visual records of the main humanitarian actions carried out in Benguela.",
+
+    // PCA
+    pca_titulo: "United for the reconstruction of Benguela",
+    pca_desc: "Presidents and administrators of Angola's leading energy companies in a joint commitment to social responsibility.",
+
+    // ALIANÇA ESTRATÉGICA
+    alianca_estrategica_titulo: "Strategic Humanitarian Alliance",
+    alianca_estrategica_desc: "An institutional cooperation between leading energy companies for a fast and sustainable response to humanitarian needs in Benguela.",
+
+    // ALIANÇA
+    alianca_titulo: "Strategic Humanitarian Alliance",
+    alianca_desc: "An institutional cooperation between leading energy companies for a fast and sustainable response to humanitarian needs in Benguela.",
+
+    // FOOTER
+    footer_local: "Location",
+    footer_apoio: "Support Center",
+    footer_email: "Email",
+    footer_copy: "© 2026 SOS DOWNSTREAM. All rights reserved."
+  }
+};
+
+function changeLanguage(lang) {
+
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll("[data-translate]").forEach(el => {
+    const key = el.getAttribute("data-translate");
+
+    if (translations[lang][key]) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  const activeBtn = document.querySelector(`button[onclick="changeLanguage('${lang}')"]`);
+  if (activeBtn) activeBtn.classList.add("active");
+
+  localStorage.setItem("siteLanguage", lang);
+}
+
+// carregar idioma salvo
+document.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("siteLanguage") || "pt";
+  changeLanguage(savedLang);
 });
 </script>
 
