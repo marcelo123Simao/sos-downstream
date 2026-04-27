@@ -11,6 +11,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="#" />
+<link rel="icon" href="imagem/logo.png" type="image/png" />
 <style>
 
 /* ================= NAV ================= */
@@ -914,7 +915,7 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
       <div class="container hero-content text-center">
         <h1 class="hero-title" data-translate="hero2_title">Ajuda Humanitária</h1>
         <p class="hero-subtitle" data-translate="hero2_sub">
-          Mobilização nacional para apoiar famílias afetadas
+          Mobilização nacional para apoiar famílias afectadas
         </p>
       </div>
     </div>
@@ -1463,7 +1464,7 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
      target="_blank"
      class="footer-action-item">
     <i class="bi bi-geo-alt-fill"></i>
-    <span>Ver Localização</span>
+    <span data-translate="modal_ver_localizacao">Ver Localização</span>
   </a>
 
   <!-- MENSAGEM -->
@@ -1472,7 +1473,7 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
      data-bs-target="#mensagemModal"
      class="footer-action-item">
     <i class="bi bi-chat-dots-fill"></i>
-    <span>Deixe uma Mensagem</span>
+    <span data-translate="modal_deixar_mensagem">Deixe uma Mensagem</span>
   </a>
 
 </div>
@@ -1493,25 +1494,25 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
     <div class="modal-content custom-modal">
 
       <div class="modal-header border-0">
-        <h5 class="modal-title fw-bold">Envie a sua mensagem</h5>
+        <h5 data-translate="modal_titulo" class="modal-title fw-bold">Envie a sua mensagem</h5>
         <button type="button" class="btn-close btn-close-white"
-                data-bs-dismiss="modal"></button>
+        data-bs-dismiss="modal"></button>
       </div>
 
       <div class="modal-body">
 
         <form>
           <div class="mb-3">
-            <label class="form-label">Nome</label>
+            <label data-translate="modal_nome" class="form-label">Nome</label>
             <input type="text" class="form-control custom-input" required>
           </div>
 
           <div class="mb-3">
-            <label class="form-label">Mensagem</label>
+            <label data-translate="modal_mensagem" class="form-label">Mensagem</label>
             <textarea class="form-control custom-input" rows="4" required></textarea>
           </div>
 
-          <button type="submit" class="btn donate-btn w-100">
+          <button data-translate="modal_enviar" type="submit" class="btn donate-btn w-100">
             Enviar Mensagem
           </button>
 
@@ -1629,7 +1630,16 @@ const translations = {
     footer_local: "Localização",
     footer_apoio: "Central de Apoio",
     footer_email: "Email",
-    footer_copy: "© 2026 SOS DOWNSTREAM. Todos os direitos reservados."
+    footer_copy: "© 2026 SOS DOWNSTREAM. Todos os direitos reservados.",
+
+          /* ================= MODAL MENSAGEM ================= */
+      modal_ver_localizacao: "Ver Localização",
+      modal_deixar_mensagem: "Deixe uma Mensagem",
+      modal_titulo: "Envie a sua mensagem",
+      modal_nome: "Nome",
+      modal_mensagem: "Mensagem",
+      modal_enviar: "Enviar Mensagem"
+
   },
 
   en: {
@@ -1719,7 +1729,14 @@ const translations = {
     footer_local: "Location",
     footer_apoio: "Support Center",
     footer_email: "Email",
-    footer_copy: "© 2026 SOS DOWNSTREAM. All rights reserved."
+    footer_copy: "© 2026 SOS DOWNSTREAM. All rights reserved.",
+    /* ================= MESSAGE MODAL ================= */
+    modal_ver_localizacao: "View Location",
+    modal_deixar_mensagem: "Leave a Message",
+    modal_titulo: "Send your message",
+    modal_nome: "Name",
+    modal_mensagem: "Message",
+    modal_enviar: "Send Message"
   }
 };
 
