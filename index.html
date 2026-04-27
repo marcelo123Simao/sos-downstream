@@ -704,6 +704,135 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
   background: linear-gradient(45deg, #e5b123, #c99c1a);
   color: #0f3d86;
 }
+
+/* ================= PRODUTOS DROPDOWN ================= */
+
+.product-card {
+  background: url('imagem/produtos_PD.jpeg') center/cover no-repeat;
+  border: none;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.higiene-bg {
+  background: url('imagem/produtos_PH.jpeg') center/cover no-repeat;
+}
+
+.alimento-bg {
+  background: url('imagem/produtos_PA.jpeg') center/cover no-repeat;
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+}
+
+.product-header {
+  background: transparent !important;
+  color: #fff !important;
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
+  z-index: 2;
+}
+
+.accordion-body {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.product-list li span {
+  font-weight: bold;
+  color: #FFD700;
+}
+
+/*CSS DO ICONE DO GOOGLE MAP E DO ICONE DE MENSAGEM */
+/* =========================
+   FOOTER ACTIONS PREMIUM
+========================= */
+
+.footer-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-action-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.08);
+  transition: 0.4s ease;
+}
+
+.footer-action-item i {
+  font-size: 20px;
+  color: #f5c542;
+}
+.footer-action-item:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(45deg, #f5c542, #d4a017);
+  color: white;
+  box-shadow: 0 10px 25px rgba(245, 197, 66, 0.4);
+}
+
+/* ÍCONE APARECE NO HOVER */
+.footer-action-item:hover i {
+  opacity: 1;
+  transform: translateY(0);
+}
+.footer-action-item:hover i,
+.footer-action-item:hover svg {
+  color: #ffffff !important;
+}
+/* =========================
+   MODAL PREMIUM
+========================= */
+
+.custom-modal {
+  background: linear-gradient(135deg, #081c3a, #0d2d62);
+  color: #fff;
+  border-radius: 20px;
+}
+
+.custom-input {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+.custom-input:focus {
+  background: rgba(255,255,255,0.15);
+  border-color: #f5c542;
+  box-shadow: none;
+  color: #fff;
+}
 </style>
 
 </head>
@@ -731,15 +860,15 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
       <ul class="navbar-nav mx-auto text-center">
         <li class="nav-item"><a class="nav-link" href="#" data-translate="nav_inicio">Início</a></li>
         <li class="nav-item"><a class="nav-link" href="#sobre" data-translate="nav_sobre">Sobre</a></li>
-        <li class="nav-item"><a class="nav-link" href="#impacto" data-translate="nav_impacto">Impacto</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projectos" data-translate="nav_projectos">Projectos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#impacto" data-translate="nav_projectos">Projectos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projectos" data-translate="nav_impacto">Impacto</a></li>
         <li class="nav-item"><a class="nav-link" href="#doacoes" data-translate="nav_doacoes">Doações</a></li>
       </ul>
 
       <!-- BOTÃO DIREITO -->
       <div class="d-lg-block text-center mt-3 mt-lg-0 color-write">
-        <a data-translate="nav_ajudar" href="#doacoes" class="donate-btn">
-          Venha Ajudar
+        <a data-translate="nav_ajudar" href="#cont" class="donate-btn">
+          Contactos
         </a>
       </div>
       <div class="language-switcher ms-lg-3 mt-3 mt-lg-0 text-center">
@@ -959,7 +1088,7 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
       <!-- ================= LADO ESQUERDO (DADOS BANCÁRIOS) ================= -->
       <div class="col-lg-6">
 
-        <h2 data-translate="doacao_titulo" class="donation-title mb-3" id="apoio">
+        <h2 data-translate="doacao_titulo" class="donation-title mb-5" id="apoio">
           Apoio Humanitário à Benguela
         </h2>
 
@@ -970,12 +1099,12 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
         <!-- CARDS BANCÁRIOS GLASS -->
         <div class="bank-card mb-3">
           <h6>Banco BAI</h6>
-          <p>AO06 1236 5689 9087</p>
+          <p>AO06 **** **** ****</p>
         </div>
 
         <div class="bank-card mb-3">
           <h6>Banco BFA</h6>
-          <p>AO06 1234 5678 9012</p>
+          <p>AO06 **** **** ****</p>
         </div>
 
         <div class="bank-card mb-4">
@@ -1044,6 +1173,129 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
       </div>
     </div>
 
+    <div class="col-6 col-md-4 col-lg-4">
+      <div class="impact-img">
+        <img src="imagem/apoiobens1.jpeg" alt="apoio dos bens de primeira necessidade">
+      </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-4">
+      <div class="impact-img">
+        <img src="imagem/apoiobens2.jpeg" alt="apoio dos bens de primeira necessidade">
+      </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-4">
+      <div class="impact-img">
+        <img src="imagem/apoiobens3.jpeg" alt="apoio dos bens de primeira necessidade">
+      </div>
+    </div>
+
+<!-- MAIS IMAGENS DE APOIO PODEM SER ADICIONADAS AQUI -->
+     <!-- ================= PRODUTOS ADQUIRIDOS ================= -->
+ <div class="mt-5">
+
+  <h3 class="fw-bold mb-4 donation-title" data-translate="produtos_titulo">
+    Produtos Já Adquiridos
+  </h3>
+
+  <div class="accordion custom-accordion" id="produtosAdquiridos">
+
+    <!-- ================= PRODUTOS DIVERSOS ================= -->
+    <div class="accordion-item product-card">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed product-header"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#diversos"
+                data-translate="produtos_diversos">
+          Produtos Diversos
+        </button>
+      </h2>
+
+      <div id="diversos"
+           class="accordion-collapse collapse"
+           data-bs-parent="#produtosAdquiridos">
+        <div class="accordion-body">
+
+          <ul class="product-list">
+          <li><span data-translate="bacias">Bacias Plásticas</span> <span>200</span></li>
+          <li><span data-translate="baldes">Balde Plástico</span> <span>200</span></li>
+          <li><span data-translate="mosquiteiros">Mosquiteiros</span> <span>500</span></li>
+        </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= PRODUTOS DE HIGIENE ================= -->
+    <div class="accordion-item product-card higiene-bg">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed product-header"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#higiene"
+                data-translate="produtos_higiene">
+          Produtos de Higiene
+        </button>
+      </h2>
+
+      <div id="higiene"
+           class="accordion-collapse collapse"
+           data-bs-parent="#produtosAdquiridos">
+        <div class="accordion-body">
+
+          <ul class="product-list">
+          <li><span data-translate="sabao">Sabão</span> <span>200 cx</span></li>
+          <li><span data-translate="pasta">Pasta Dentífrica</span> <span>200 cx</span></li>
+          <li><span data-translate="escovas">Escovas de Dente</span> <span>200 cx</span></li>
+          <li><span data-translate="papel">Papel Higiénico</span> <span>100 cx</span></li>
+          <li><span data-translate="fraldas">Fraldas Descartáveis</span> <span>150 cx</span></li>
+          <li><span data-translate="lava_loica">Lava Loiça</span> <span>20 cx</span></li>
+          <li><span data-translate="lixivia">Lixívia</span> <span>100 cx</span></li>
+          <li><span data-translate="detergente">Detergente</span> <span>30 cx</span></li>
+        </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= PRODUTOS ALIMENTARES ================= -->
+    <div class="accordion-item product-card alimento-bg">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed product-header"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#alimentar"
+                data-translate="produtos_alimentares">
+          Produtos Alimentares
+        </button>
+      </h2>
+
+      <div id="alimentar"
+           class="accordion-collapse collapse"
+           data-bs-parent="#produtosAdquiridos">
+        <div class="accordion-body">
+
+          <ul class="product-list">
+          <li><span data-translate="arroz">Arroz</span> <span>100 sacos</span></li>
+          <li><span data-translate="massa">Massa</span> <span>100 cxs</span></li>
+          <li><span data-translate="oleo">Óleo</span> <span>100 cxs</span></li>
+          <li><span data-translate="acucar">Açúcar</span> <span>250 sacos</span></li>
+          <li><span data-translate="agua">Água</span> <span>400 cx</span></li>
+          <li><span data-translate="fuba">Fuba</span> <span>150 sacos</span></li>
+          <li><span data-translate="feijao">Feijão</span> <span>50 sacos</span></li>
+        </ul>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<!-- FIM DOS PRODUTOS ADQUIRIDOS -->
+
   </div>
 
 </div>
@@ -1067,7 +1319,7 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
 
         <div class="pca-image-wrapper position-relative rounded-4 overflow-hidden shadow-lg">
 
-          <img src="imagem/PCAS.jpeg" class="img-fluid w-100" alt="PCA das empresas juntos">
+          <img src="imagem/PCAsfinal.jpeg" class="img-fluid w-100" alt="PCA das empresas juntos">
 
           <!-- OVERLAY ESCURO -->
           <div class="pca-overlay"></div>
@@ -1134,6 +1386,7 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
               <div class="logo-overlay">ETU Energias</div>
             </div>
           </div>
+           <!--COMEÇO DE OUTRO CARD -->
 
         </div>
 
@@ -1181,7 +1434,7 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
     <hr class="footer-divider">
 
     <!-- INFORMAÇÕES -->
-    <div class="row text-center text-md-start justify-content-center footer-info">
+    <div class="row text-center text-md-start justify-content-center footer-info" id="cont">
 
       <div class="col-md-4 mb-4">
         <h6 data-translate="footer_apoio">Central de Apoio</h6>
@@ -1202,15 +1455,75 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
 
     </div>
 
-    <hr class="footer-divider">
+    <!-- ===== AÇÕES RÁPIDAS FOOTER ===== -->
+   <div class="footer-actions mt-4">
+
+  <!-- MAPA -->
+  <a href="https://www.google.com/maps/search/?api=1&query=Benguela+Angola"
+     target="_blank"
+     class="footer-action-item">
+    <i class="bi bi-geo-alt-fill"></i>
+    <span>Ver Localização</span>
+  </a>
+
+  <!-- MENSAGEM -->
+  <a href="#"
+     data-bs-toggle="modal"
+     data-bs-target="#mensagemModal"
+     class="footer-action-item">
+    <i class="bi bi-chat-dots-fill"></i>
+    <span>Deixe uma Mensagem</span>
+  </a>
+
+</div>
+<!-- FIM DAS AÇÕES RÁPIDAS FOOTER -->
+  
+<hr class="footer-divider">
 
     <p data-translate="footer_copy" class="text-center small footer-copy">
       © 2026 SOS DOWNSTREAM. Todos os direitos reservados.
     </p>
-
-  </div>
+</div>
 
 </footer>
+
+<!-- ===== MODAL MENSAGEM ===== -->
+<div class="modal fade" id="mensagemModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content custom-modal">
+
+      <div class="modal-header border-0">
+        <h5 class="modal-title fw-bold">Envie a sua mensagem</h5>
+        <button type="button" class="btn-close btn-close-white"
+                data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Nome</label>
+            <input type="text" class="form-control custom-input" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Mensagem</label>
+            <textarea class="form-control custom-input" rows="4" required></textarea>
+          </div>
+
+          <button type="submit" class="btn donate-btn w-100">
+            Enviar Mensagem
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== FIM DO MODAL MENSAGEM ===== -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -1225,27 +1538,30 @@ window.addEventListener("scroll", () => {
   }
 });
 </script>
+
+<!-- SCRIPT PARA A TRADUÇÃO DO SITE -->
 <script>
 const translations = {
   pt: {
-    // NAV
+
+    /* ================= NAV ================= */
     nav_inicio: "Início",
     nav_sobre: "Sobre",
     nav_impacto: "Impacto",
     nav_projectos: "Projectos",
     nav_doacoes: "Doações",
-    nav_ajudar: "Venha Ajudar",
+    nav_ajudar: "Contactos",
 
-    // HERO 1
+    /* ================= HERO 1 ================= */
     hero_sub: "Unidos para reconstruir vidas em Benguela",
     hero_btn1: "Apoiar Agora",
     hero_btn2: "Ver Impacto",
 
-    // HERO 2
+    /* ================= HERO 2 ================= */
     hero2_title: "Ajuda Humanitária",
     hero2_sub: "Mobilização nacional para apoiar famílias afetadas",
 
-    // SOBRE
+    /* ================= SOBRE ================= */
     sobre_titulo: "Sobre SOS Downstream",
     sobre_desc: "Uma resposta estratégica e humanitária à catástrofe que afetou Benguela.",
 
@@ -1255,38 +1571,61 @@ const translations = {
 
     sobre_texto3: `Mais do que uma ação emergencial, esta iniciativa representa um compromisso institucional de responsabilidade social, solidariedade e reconstrução nacional.`,
 
-    // IMPACTO
+    /* ================= IMPACTO ================= */
     impacto_titulo: "Impacto Social",
     impacto_desc: "Imagens mostrando o impacto ocorrido em Benguela devido às inundações.",
 
-    // ESTATÍSTICAS
+    /* ================= ESTATÍSTICAS ================= */
     stat1: "Famílias precisando do seu apoio",
     stat2: "Casas destruídas",
     stat3: "Mortos",
     stat4: "Kz Arrecadados",
 
-    // DOAÇÕES
+    /* ================= DOAÇÕES ================= */
     doacao_titulo: "Apoio Humanitário à Benguela",
     doacao_desc: "As contribuições são fundamentais para garantir alimentação, abrigo e apoio às famílias afetadas.",
     contribuir: "Contribuir Agora",
 
-    // PROJECTOS
+    /* ================= PROJECTOS ================= */
     projectos_titulo: "Projectos de Apoio",
     projectos_desc: "Registos visuais das principais acções humanitárias realizadas em Benguela.",
 
-    // PCA
+    /* ================= PCA ================= */
     pca_titulo: "Unidos pela reconstrução de Benguela",
     pca_desc: "Presidentes e Administradores das principais empresas energéticas de Angola em compromisso conjunto de responsabilidade social.",
 
-    // ALIANÇA ESTRATÉGICA
+    /* ================= ALIANÇA ================= */
     alianca_estrategica_titulo: "Aliança Humanitária Estratégica",
     alianca_estrategica_desc: "Uma cooperação institucional entre empresas líderes do setor energético para resposta rápida e sustentável às necessidades humanitárias em Benguela.",
 
-    // ALIANÇA
-    alianca_titulo: "Aliança Humanitária Estratégica",
-    alianca_desc: "Uma cooperação institucional entre empresas líderes do setor energético para resposta rápida e sustentável às necessidades humanitárias em Benguela.",
+    /* ================= PRODUTOS ================= */
+    produtos_titulo: "Produtos Já Adquiridos",
+    produtos_diversos: "Produtos Diversos",
+    produtos_higiene: "Produtos de Higiene",
+    produtos_alimentares: "Produtos Alimentares",
 
-    // FOOTER
+    bacias: "Bacias Plásticas",
+    baldes: "Balde Plástico",
+    mosquiteiros: "Mosquiteiros",
+
+    sabao: "Sabão",
+    pasta: "Pasta Dentífrica",
+    escovas: "Escovas de Dente",
+    papel: "Papel Higiénico",
+    fraldas: "Fraldas Descartáveis",
+    lava_loica: "Lava Loiça",
+    lixivia: "Lixívia",
+    detergente: "Detergente",
+
+    arroz: "Arroz",
+    massa: "Massa",
+    oleo: "Óleo",
+    acucar: "Açúcar",
+    agua: "Água",
+    fuba: "Fuba",
+    feijao: "Feijão",
+
+    /* ================= FOOTER ================= */
     footer_local: "Localização",
     footer_apoio: "Central de Apoio",
     footer_email: "Email",
@@ -1294,24 +1633,25 @@ const translations = {
   },
 
   en: {
-    // NAV
+
+    /* ================= NAV ================= */
     nav_inicio: "Home",
     nav_sobre: "About",
     nav_impacto: "Impact",
     nav_projectos: "Projects",
     nav_doacoes: "Donations",
-    nav_ajudar: "Support Now",
+    nav_ajudar: "Contacts",
 
-    // HERO 1
+    /* ================= HERO 1 ================= */
     hero_sub: "United to rebuild lives in Benguela",
     hero_btn1: "Support Now",
     hero_btn2: "View Impact",
 
-    // HERO 2
+    /* ================= HERO 2 ================= */
     hero2_title: "Humanitarian Aid",
     hero2_sub: "National mobilization to support affected families",
 
-    // SOBRE
+    /* ================= ABOUT ================= */
     sobre_titulo: "About SOS Downstream",
     sobre_desc: "A strategic and humanitarian response to the catastrophe that affected Benguela.",
 
@@ -1321,38 +1661,61 @@ const translations = {
 
     sobre_texto3: `More than an emergency action, this initiative represents an institutional commitment to social responsibility, solidarity, and national reconstruction.`,
 
-    // IMPACTO
+    /* ================= IMPACT ================= */
     impacto_titulo: "Social Impact",
     impacto_desc: "Images showing the impact caused by floods in Benguela.",
 
-    // ESTATÍSTICAS
+    /* ================= STATS ================= */
     stat1: "Families in need of support",
     stat2: "Destroyed Houses",
     stat3: "Deaths",
     stat4: "Funds Raised (Kz)",
 
-    // DOAÇÕES
+    /* ================= DONATIONS ================= */
     doacao_titulo: "Humanitarian Support for Benguela",
     doacao_desc: "Contributions are essential to ensure food, shelter and assistance to affected families.",
     contribuir: "Contribute Now",
 
-    // PROJECTS
+    /* ================= PROJECTS ================= */
     projectos_titulo: "Support Projects",
     projectos_desc: "Visual records of the main humanitarian actions carried out in Benguela.",
 
-    // PCA
+    /* ================= PCA ================= */
     pca_titulo: "United for the reconstruction of Benguela",
     pca_desc: "Presidents and administrators of Angola's leading energy companies in a joint commitment to social responsibility.",
 
-    // ALIANÇA ESTRATÉGICA
+    /* ================= ALLIANCE ================= */
     alianca_estrategica_titulo: "Strategic Humanitarian Alliance",
     alianca_estrategica_desc: "An institutional cooperation between leading energy companies for a fast and sustainable response to humanitarian needs in Benguela.",
 
-    // ALIANÇA
-    alianca_titulo: "Strategic Humanitarian Alliance",
-    alianca_desc: "An institutional cooperation between leading energy companies for a fast and sustainable response to humanitarian needs in Benguela.",
+    /* ================= PRODUCTS ================= */
+    produtos_titulo: "Products Acquired So Far",
+    produtos_diversos: "General Supplies",
+    produtos_higiene: "Hygiene Products",
+    produtos_alimentares: "Food Supplies",
 
-    // FOOTER
+    bacias: "Plastic Basins",
+    baldes: "Plastic Buckets",
+    mosquiteiros: "Mosquito Nets",
+
+    sabao: "Soap",
+    pasta: "Toothpaste",
+    escovas: "Toothbrushes",
+    papel: "Toilet Paper",
+    fraldas: "Disposable Diapers",
+    lava_loica: "Dishwashing Liquid",
+    lixivia: "Bleach",
+    detergente: "Detergent",
+
+    arroz: "Rice",
+    massa: "Pasta",
+    oleo: "Cooking Oil",
+    acucar: "Sugar",
+    agua: "Water",
+    fuba: "Corn Flour",
+    feijao: "Beans",
+
+    /* ================= FOOTER ================= */
     footer_local: "Location",
     footer_apoio: "Support Center",
     footer_email: "Email",
@@ -1360,6 +1723,8 @@ const translations = {
   }
 };
 
+
+/* ================= FUNÇÃO ================= */
 function changeLanguage(lang) {
 
   document.documentElement.lang = lang;
@@ -1367,7 +1732,7 @@ function changeLanguage(lang) {
   document.querySelectorAll("[data-translate]").forEach(el => {
     const key = el.getAttribute("data-translate");
 
-    if (translations[lang][key]) {
+    if (translations[lang] && translations[lang][key]) {
       el.innerHTML = translations[lang][key];
     }
   });
@@ -1382,7 +1747,7 @@ function changeLanguage(lang) {
   localStorage.setItem("siteLanguage", lang);
 }
 
-// carregar idioma salvo
+/* ================= CARREGAR IDIOMA SALVO ================= */
 document.addEventListener("DOMContentLoaded", () => {
   const savedLang = localStorage.getItem("siteLanguage") || "pt";
   changeLanguage(savedLang);
