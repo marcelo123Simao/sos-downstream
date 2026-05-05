@@ -817,3 +817,50 @@ CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS
   box-shadow: none;
   color: #fff;
 }
+
+/*CSS DO TOGGLE DE IDIOMA*/
+.language-switcher {
+  display: flex;
+  justify-content: center;
+}
+
+.lang-toggle {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  background: #e9ecef;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+.lang-option {
+  flex: 1;
+  text-align: center;
+  z-index: 2;
+  color: #f5c542;
+  transition: color 0.3s ease;
+}
+
+.lang-option.active {
+  color: #fff;
+}
+
+.toggle-slider {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(45deg, #f5c542, #e93253);
+  border-radius: 50px;
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.lang-toggle.active .toggle-slider {
+  transform: translateX(100%);
+}

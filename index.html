@@ -54,9 +54,15 @@
       </div>
 
       <div class="language-switcher ms-lg-3 mt-3 mt-lg-0 text-center">
-      <button class="lang-btn active" onclick="changeLanguage('pt')">PT</button>
-      <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+  
+    <div class="lang-toggle" onclick="toggleLanguage()">
+      <div class="toggle-slider"></div>
+
+      <span class="lang-option active" id="label-pt">PT</span>
+      <span class="lang-option" id="label-en">EN</span>
     </div>
+
+  </div>
 
     </div>
   </div>
@@ -322,39 +328,40 @@
 
     <div class="col-6 col-md-4 col-lg-4">
       <div class="impact-img">
-        <img src="imagem/apoio2.jpeg" alt="apoio da união dos cantores em grupos">
-      </div>
-    </div>
-
-    <div class="col-6 col-md-4 col-lg-4">
-      <div class="impact-img">
-        <img src="imagem/apoio1.jpeg" alt="apoio dos cantores individualmente">
-      </div>
-    </div>
-
-    <div class="col-6 col-md-4 col-lg-4">
-      <div class="impact-img">
-        <img src="imagem/apoio3.jpeg" alt="apoio dos cantores show solidario">
-      </div>
-    </div>
-
-    <div class="col-6 col-md-4 col-lg-4">
-      <div class="impact-img">
-        <img src="imagem/apoio4.jpeg" alt="apoio da comunicação social">
-      </div>
-    </div>
-
-    <div class="col-6 col-md-4 col-lg-4">
-      <div class="impact-img">
         <img src="imagem/apoio5.jpeg" alt="apoio do presidente">
       </div>
     </div>
 
     <div class="col-6 col-md-4 col-lg-4">
       <div class="impact-img">
-        <img src="imagem/impacto10.jpeg" alt="apoio dos bombeiros">
+        <img src="imagem/apoio1.jpeg" alt="apoio da comunicação social">
       </div>
     </div>
+
+    <div class="col-6 col-md-4 col-lg-4">
+      <div class="impact-img">
+        <img src="imagem/impacto10.jpeg" alt="apoio dos cantores show solidario">
+      </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-4">
+      <div class="impact-img">
+        <img src="imagem/apoiobens7.jpeg" alt="apoio da união dos cantores em grupos">
+      </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-4">
+      <div class="impact-img">
+        <img src="imagem/apoiobens8.jpeg" alt="apoio dos cantores individualmente">
+      </div>
+    </div>
+
+    <div class="col-6 col-md-4 col-lg-4">
+      <div class="impact-img">
+        <img src="imagem/apoiobens9.jpeg" alt="apoio dos cantores show solidario">
+      </div>
+    </div>
+
 
     <div class="col-6 col-md-4 col-lg-4">
       <div class="impact-img">
@@ -950,6 +957,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const savedLang = localStorage.getItem("siteLanguage") || "pt";
   changeLanguage(savedLang);
 });
+</script>
+
+<script>
+let currentLang = "pt";
+
+function toggleLanguage() {
+    const toggle = document.querySelector(".lang-toggle");
+    const ptLabel = document.getElementById("label-pt");
+    const enLabel = document.getElementById("label-en");
+
+    toggle.classList.toggle("active");
+
+    if (currentLang === "pt") {
+        currentLang = "en";
+        ptLabel.classList.remove("active");
+        enLabel.classList.add("active");
+        changeLanguage("en");
+    } else {
+        currentLang = "pt";
+        enLabel.classList.remove("active");
+        ptLabel.classList.add("active");
+        changeLanguage("pt");
+    }
+}
 </script>
 
 </body>
