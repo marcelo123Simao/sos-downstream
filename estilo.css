@@ -1,111 +1,86 @@
+
+/* ================= NAV ================= */
+
 /* =========================
-   SECÇÃO PARCEIROS PREMIUM
+   NAVBAR PREMIUM
 ========================= */
-
-.partners-section {
-  background: linear-gradient(135deg, #f8fafc, #ffffff);
-}
-
-/* ===== IMAGEM PCA ===== */
-.pca-image-wrapper {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.pca-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.75),
-    rgba(0,0,0,0.2)
-  );
-}
-
-.pca-text {
-  position: absolute;
-  bottom: 25px;
-  left: 25px;
-  right: 25px;
-}
-
-/* ===== TÍTULO ===== */
-.partners-title {
-  font-size: 2rem;
-  background: linear-gradient(90deg, #e63946, #f77f00, #2a9d8f);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ===== LOGO CARDS ===== */
-.logo-card {
-  position: relative;
-  background: white;
-  border-radius: 16px;
-  padding: 20px;
-  height: 110px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+.custom-navbar {
+  background: linear-gradient(90deg, #081c3a, #0d2d62);
+  padding: 15px 0;
   transition: all 0.4s ease;
-
-  overflow: hidden;
-  cursor: pointer;
+  backdrop-filter: blur(8px);
 }
 
-/* LOGO */
-.logo-card img {
-  max-width: 100%;
-  max-height: 55px;
-  transition: 0.4s ease;
-  filter: grayscale(100%);
+/* Efeito ao scroll */
+.custom-navbar.scrolled {
+  background: rgba(8, 28, 58, 0.95);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* OVERLAY */
-.logo-overlay {
+/* Links */
+.nav-link {
+   background: linear-gradient(90deg, #4f8cff, #ffffff, #f5c542);
+    -webkit-background-clip: text;
+  font-weight: 500;
+  margin: 0 15px;
+  position: relative;
+  transition: 0.3s ease;
+  font-size: 1.05rem;
+}
+
+/* Hover dourado elegante */
+.nav-link::after {
+  content: "";
   position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.65);
-  color: white;
+  width: 0;
+  height: 2px;
+  left: 50%;
+  bottom: -5px;
+  background: #f5c542;
+  transition: 0.3s ease;
+  transform: translateX(-50%);
+}
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.nav-link:hover {
+  color: #f5c542 !important;
+}
 
-  opacity: 0;
-  transition: 0.4s ease;
+.nav-link:hover::after {
+  width: 60%;
+}
 
+/* Botão Venha Ajudar */
+.btn-help {
+  background: linear-gradient(45deg, #f5c542, #d4a017);
+  color: #081c3a;
   font-weight: bold;
-  letter-spacing: 1px;
+  padding: 10px 25px;
+  border-radius: 50px;
+  transition: 0.4s ease;
+  box-shadow: 0 8px 20px rgba(245, 197, 66, 0.4);
 }
 
-/* HOVER ULTRA EFFECT */
-.logo-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+.btn-help:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(245, 197, 66, 0.6);
+  color: #081c3a;
 }
 
-.logo-card:hover img {
-  filter: grayscale(0%);
-  transform: scale(1.1);
-}
-
-.logo-card:hover .logo-overlay {
-  opacity: 1;
+/* Responsivo */
+@media (max-width: 991px) {
+  .nav-link {
+    margin: 10px 0;
+  }
 }
 
 /*CSS DA SESSÃO DE APOIO DO PROJECTO */
 /* =========================
-   SESSÃO DOAÇÕES PREMIUM
+   SESSÃO DOAÇÕES 
 ========================= */
 
 .donation-section {
   position: relative;
-  background: url("imagem/fundo-doacoes.jpg") center/cover no-repeat;
+  background: url("imagem/doaçoes.jpeg") center/cover no-repeat;
   overflow: hidden;
 }
 
@@ -115,7 +90,7 @@
   position: absolute;
   inset: 0;
   background: rgba(10, 15, 25, 0.75);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(3px);
 }
 
 /* garante conteúdo acima do overlay */
@@ -187,4 +162,658 @@
   transform: scale(1.08);
   filter: grayscale(0%);
   box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+/*FIM DO CSS DA SESSÃO DE APOIO DO PROJECTO*/
+
+/* =========================
+CSS DA SESSÃO DO APOIO EM BENGUELA E DOS PROJECTOS 
+========================= */
+
+.partners-section {
+  background: linear-gradient(135deg, #f8fafc, #ffffff);
+}
+
+/* ===== IMAGEM PCA ===== */
+.pca-image-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.pca-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.2)
+  );
+}
+
+.pca-text {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  right: 25px;
+}
+
+/* ===== TÍTULO ===== */
+.partners-title {
+  font-size: 2rem;
+  background: linear-gradient(90deg, #e63946, #f77f00, #2a9d8f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*FIM DO CSS*/
+
+.logo-card {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  height: 120px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  transition: all 0.4s ease;
+}
+
+/* IMAGEM DO LOGO OCUPA TODO O CARD */
+.logo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* mantém o logo intacto */
+  padding: 15px;       /* dá respiro elegante */
+  transition: 0.4s ease;
+}
+
+/* OVERLAY */
+.logo-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transition: 0.4s ease;
+
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* HOVER PREMIUM */
+.logo-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+}
+
+.logo-card:hover img {
+  filter: brightness(1.05);
+  transform: scale(1.05);
+}
+
+.logo-card:hover .logo-overlay {
+  opacity: 1;
+}
+
+/*CSS DA SESSÃO DO SOBRE MIM */
+/* =========================
+   SOBRE PREMIUM
+========================= */
+
+.about-section {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* ===== BACKGROUND COM 2 IMAGENS EM TRANSIÇÃO ===== */
+.about-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  animation: bgSlide 16s infinite;
+  z-index: 1;
+}
+.about-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 15, 55, 0.75) 0%,   /* topo mais escuro */
+    rgba(5, 15, 35, 0.55) 40%,
+    rgba(5, 15, 35, 0.35) 100% /* parte inferior mais visível */
+  );
+}
+
+/* animação troca de imagem */
+@keyframes bgSlide {
+  0% {
+    background-image: url("imagem/sobrefinal1.jpeg");
+  }
+  50% {
+    background-image: url("imagem/sobrefinal2.jpeg");
+  }
+  100% {
+    background-image: url("imagem/sobrefinal3.jpeg");
+  }
+}
+
+/* garante conteúdo acima */
+.about-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== TÍTULO INSTITUCIONAL ===== */
+.about-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #4f8cff, #ffffff, #f5c542);
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===== BLOCO DE TEXTO GLASS ===== */
+.about-content {
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-align: center;
+  transition: 0.5s ease;
+}
+
+.about-content:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+/*FIM DO CSS*/
+
+/*CSS DO CARROSSEL*/
+/* =========================
+   HERO CINEMATOGRÁFICO
+========================= */
+
+.hero-section {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  animation: zoomHero 20s ease-in-out infinite alternate;
+}
+
+@keyframes zoomHero {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+/* overlay escuro para AS IMAGENS DE FUNDO DO CARROUSEL destacar texto */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.35)
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  max-width: 900px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ffffff, #f5c542);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeUp 1.5s ease;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  opacity: 0.9;
+  animation: fadeUp 2s ease;
+}
+
+/* Botão principal dourado */
+.btn-hero-primary {
+  background: linear-gradient(45deg, #f5c542, #d4a017);
+  color: #081c3a;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: 0.4s ease;
+  box-shadow: 0 10px 25px rgba(245,197,66,0.4);
+}
+
+.btn-hero-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(245,197,66,0.6);
+  color: #081c3a;
+}
+
+/* Botão outline elegante */
+.btn-hero-outline {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: 0.4s ease;
+}
+
+.btn-hero-outline:hover {
+  background: #ffffff;
+  color: #081c3a;
+}
+
+/* Indicadores personalizados */
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #f5c542;
+  opacity: 0.6;
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+}
+
+/* ESSENCIAL PARA O CAROUSEL FUNCIONAR */
+.carousel-item {
+  height: 100vh;
+  position: relative;
+}
+
+/* Animação texto */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/*CSS DA SESSÃO DE IMPACTO*/
+/* =========================
+   IMPACTO SOCIAL
+========================= */
+
+.impact-section {
+  background: linear-gradient(180deg, #f8f9fa, #eef2f7);
+}
+.impact-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(
+    90deg,
+    #081c3a 0%,      /* azul institucional profundo */
+    #0f3d86 40%,     /* azul médio */
+    #f5c542 100%     /* dourado institucional */
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* IMAGENS */
+.impact-img {
+  overflow: hidden;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+}
+
+.impact-img img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: 0.6s ease;
+}
+
+.impact-img:hover img {
+  transform: scale(1.1);
+  filter: brightness(0.8);
+}
+
+/* VÍDEOS */
+.impact-video {
+  position: relative;
+  padding-top: 56.25%;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.impact-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ESTATÍSTICAS */
+.stat-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  transition: 0.4s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.stat-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.stat-box h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #0d2d62;
+}
+
+.stat-box p {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* EFEITO AO APARECER 
+.impact-section {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: 1s ease;
+}*/
+.impact-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*CSS DO RODAPÉ*/
+/* =========================
+   FOOTER PREMIUM
+========================= */
+
+.footer-premium {
+  background: linear-gradient(135deg, #081c3a, #0d2d62);
+  color: #ffffff;
+}
+
+/* TÍTULO */
+.footer-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.footer-brand span {
+  background: linear-gradient(90deg, #4f8cff, #ffffff, #f5c542);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* LINHAS */
+.footer-divider {
+  border-color: rgba(255,255,255,0.15);
+}
+
+/* INFORMAÇÕES */
+.footer-info h6 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #f5c542;
+}
+
+.footer-info a,
+.footer-info p {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.footer-info a:hover {
+  color: #ffffff;
+}
+
+/* COPYRIGHT */
+.footer-copy {
+  color: rgba(255,255,255,0.6);
+}
+
+/* =========================
+   SOCIAL ICONS PREMIUM
+========================= */
+
+.social-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icon {
+  position: relative;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  background: rgba(255,255,255,0.08);
+  transition: 0.4s ease;
+  overflow: hidden;
+  color: white;
+}
+
+/* Overlay animado */
+.social-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+/* HOVER */
+.social-icon:hover {
+  transform: translateY(-6px);
+  color: #fff;
+}
+
+/* CORES OFICIAIS */
+.facebook::before { background: #1877f2; }
+.instagram::before { 
+  background: linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7); 
+}
+.twitter::before { background: #000000; }
+.youtube::before { background: #ff0000; }
+
+.social-icon:hover::before {
+  opacity: 1;
+  z-index: -1;
+}
+
+/* CSS DOS BOTÕES DE IDIOMA */
+.language-switcher {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.lang-btn {
+  background: transparent;
+  border: 1px solid #e5b123;
+  color: #e5b123;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.lang-btn:hover {
+  background: linear-gradient(45deg, #e5b123, #c99c1a);
+  color: #0f3d86;
+}
+
+.lang-btn.active {
+  background: linear-gradient(45deg, #e5b123, #c99c1a);
+  color: #0f3d86;
+}
+
+/* ================= PRODUTOS DROPDOWN ================= */
+
+.product-card {
+  background: url('imagem/produtos_PD.jpeg') center/cover no-repeat;
+  border: none;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.higiene-bg {
+  background: url('imagem/produtos_PH.jpeg') center/cover no-repeat;
+}
+
+.alimento-bg {
+  background: url('imagem/produtos_PA.jpeg') center/cover no-repeat;
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+}
+
+.product-header {
+  background: transparent !important;
+  color: #fff !important;
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
+  z-index: 2;
+}
+
+.accordion-body {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.product-list li span {
+  font-weight: bold;
+  color: #FFD700;
+}
+
+/*CSS DO ICONE DO GOOGLE MAP E DO ICONE DE MENSAGEM */
+/* =========================
+   FOOTER ACTIONS PREMIUM
+========================= */
+.footer-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.footer-action-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.08);
+  transition: 0.4s ease;
+}
+
+.footer-action-item i {
+  font-size: 20px;
+  color: #f5c542;
+}
+.footer-action-item:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(45deg, #f5c542, #d4a017);
+  color: white;
+  box-shadow: 0 10px 25px rgba(245, 197, 66, 0.4);
+}
+
+/* ÍCONE APARECE NO HOVER */
+.footer-action-item:hover i {
+  opacity: 1;
+  transform: translateY(0);
+}
+.footer-action-item:hover i,
+.footer-action-item:hover svg {
+  color: #ffffff !important;
+}
+/* =========================
+   MODAL PREMIUM
+========================= */
+
+.custom-modal {
+  background: linear-gradient(135deg, #081c3a, #0d2d62);
+  color: #fff;
+  border-radius: 20px;
+}
+
+.custom-input {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+.custom-input:focus {
+  background: rgba(255,255,255,0.15);
+  border-color: #f5c542;
+  box-shadow: none;
+  color: #fff;
 }
